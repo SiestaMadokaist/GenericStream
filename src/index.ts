@@ -22,7 +22,6 @@ export abstract class GReadable<T1> extends Readable {
   };
 
   pipe(stream: any): any {
-    console.warn(`${this.constructor.name}.stream is deprecated use either pipeT or pipeW`);
     return super.pipe(stream);
   };
 
@@ -48,7 +47,6 @@ export abstract class GTransform<T1, T2> extends Transform {
   };
 
   pipe(stream: any): any {
-    console.warn(`${this.constructor.name}.stream is deprecated use either pipeT or pipeW`);
     return super.pipe(stream);
   };
 };
