@@ -25,6 +25,11 @@ export abstract class GReadable<T1> extends Readable {
     return super.pipe(stream);
   };
 
+  protected finalize(encoding?: string | TCallback, callback?: TCallback): void {
+    if(encoding instanceof Function){ encoding(); };
+    else if(callback instanceof Function){ callback(); }
+  }
+
 };
 
 export abstract class GTransform<T1, T2> extends Transform {
@@ -33,6 +38,11 @@ export abstract class GTransform<T1, T2> extends Transform {
   };
 
   abstract _transform(e: T1, encoding?: string | TCallback, callback?: TCallback): void
+
+  protected finalize(encoding?: string | TCallback, callback?: TCallback): void {
+    if(encoding instanceof Function){ encoding(); };
+    else if(callback instanceof Function){ callback(); }
+  }
 
   push(t: T2){
     return super.push(t);
