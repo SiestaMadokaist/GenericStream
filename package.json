@@ -1,9 +1,9 @@
 {
-  "name": "GStream",
-  "version": "1.0.0",
+  "name": "generic-stream",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "postinstall": "tsc"
+    "postinstall": "rm -rf ./dist && tsc"
   }
 }
